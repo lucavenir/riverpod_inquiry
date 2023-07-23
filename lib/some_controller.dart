@@ -8,6 +8,10 @@ part 'some_controller.g.dart';
 class SomeController extends _$SomeController {
   @override
   FutureOr<int> build() {
+    ref.listenSelf((previous, next) {
+      print("Previous: $previous");
+      print("Next: $next");
+    });
     return future;
   }
 
