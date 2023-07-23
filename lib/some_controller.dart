@@ -6,9 +6,12 @@ part 'some_controller.g.dart';
 
 @riverpod
 class SomeController extends _$SomeController {
+  int _rebuilds = 0;
   @override
   FutureOr<int> build() {
     ref.listenSelf((previous, next) {
+      _rebuilds++;
+      print(_rebuilds);
       print("Previous: $previous");
       print("Next: $next");
     });
